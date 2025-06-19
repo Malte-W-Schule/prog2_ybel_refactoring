@@ -6,9 +6,27 @@ import java.util.Date;
 public class Bill {
 
 
-    public Customer customer;
-    public Adress adress;
-    public ArrayList<Article> articles;
+    private Customer customer;
+    private Adress adress;
+    private ArrayList<Article> articles;
+
+    public Customer getCustomer()
+    {
+        return this.customer;
+    }
+    public void setCustomer(Customer customer)
+    {
+        this.customer = customer;
+    }
+    public Adress getAdress()
+    {
+        return this.adress;
+    }
+    public void setAdress(Adress adress)
+    {
+        this.adress = adress;
+    }
+
 
     public Bill(Customer customer, Adress adress) {
         this.customer = customer;
