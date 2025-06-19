@@ -30,33 +30,15 @@ public class Bill {
         result += "Email: " + customer.email + "\n\n";
         result += "refactoring.Article: \n";
         for (Article article : articles) {
-            double price = 0;
-            if (article.bike instanceof Brompton) {
-                if (article.purchaseAmount > 1) {
-                    price += (article.purchaseAmount - 1) * article.bike.price / 2;
-                }
-                price += article.bike.price * article.purchaseAmount;
-            } else if (article.bike instanceof EBike) {
-                price += article.bike.price * article.purchaseAmount;
-            } else if (article.bike instanceof Mountainbike) {
-                if (article.purchaseAmount > 2) {
-                    price += article.purchaseAmount * article.bike.price * 9 / 10;
-                } else {
-                    price += article.bike.price * article.purchaseAmount;
-                }
-            }
-            if (price > 1000f || price == 1000.0) {
-                price = price * 0.8;
-            }
-
+            double price = article.calculatePrice();
             result +=
-                    "\t"
-                            + article.bike.productName
-                            + "\tx\t"
-                            + article.purchaseAmount
-                            + "\t=\t"
-                            + String.valueOf(price)
-                            + "\n";
+                "\t"
+                    + article.bike.productName
+                    + "\tx\t"
+                    + article.purchaseAmount
+                    + "\t=\t"
+                    + String.valueOf(price)
+                    + "\n";
             total += price;
         }
 
@@ -64,4 +46,5 @@ public class Bill {
 
         return result;
     }
+
 }
