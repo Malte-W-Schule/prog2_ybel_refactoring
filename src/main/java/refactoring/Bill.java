@@ -9,21 +9,15 @@ public class Bill {
     public String nickname;
     public Date birthday;
     public String email;
-    public String street;
-    public String streetNumber;
-    public int postalCode;
-    public String city;
+    public Adress adress;
     public ArrayList<Article> articles;
 
-    public Bill(String customerName, String nickname, String street, String streetNumber, int postalCode, Date birthday, String email, String city) {
+    public Bill(String customerName, String nickname, Adress adress,  Date birthday, String email) {
         this.customerName = customerName;
         this.nickname = nickname;
-        this.street = street;
-        this.streetNumber = streetNumber;
-        this.postalCode = postalCode;
         this.birthday = birthday;
         this.email = email;
-        this.city = city;
+        this.adress = adress;
         this.articles = new ArrayList<>();
     }
 
@@ -35,8 +29,8 @@ public class Bill {
         double total = 0;
 
         String result = "Details for \"" + customerName + "\"\n";
-        result += street + " " + streetNumber + "\n";
-        result += postalCode + " " + city + "\n";
+        result += adress.street + " " + adress.streetNumber + "\n";
+        result += adress.postalCode + " " + adress.city + "\n";
         result += "Geburtstag: " + birthday + "\n";
         result += "Email: " + email + "\n\n";
         result += "refactoring.Article: \n";

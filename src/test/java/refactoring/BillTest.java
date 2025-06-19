@@ -13,7 +13,8 @@ public class BillTest {
     @BeforeEach
     void setUp() {
         Date testDate = new Date(1990, 5, 15);
-        bill = new Bill("Max Mustermann", "Maxi", "Musterstraße", "42", 12345, testDate, "max@test.de", "Musterstadt");
+        Adress adress = new Adress("Mussterstraße","42",12345,"Musterstadt");
+        bill = new Bill("Max Mustermann", "Maxi", adress , testDate, "max@test.de");
     }
 
     @Test
