@@ -5,18 +5,13 @@ import java.util.Date;
 
 public class Bill {
 
-    public String customerName;
-    public String nickname;
-    public Date birthday;
-    public String email;
+
+    public Customer customer;
     public Adress adress;
     public ArrayList<Article> articles;
 
-    public Bill(String customerName, String nickname, Adress adress,  Date birthday, String email) {
-        this.customerName = customerName;
-        this.nickname = nickname;
-        this.birthday = birthday;
-        this.email = email;
+    public Bill(Customer customer, Adress adress) {
+        this.customer = customer;
         this.adress = adress;
         this.articles = new ArrayList<>();
     }
@@ -28,11 +23,11 @@ public class Bill {
     public String getDetails() {
         double total = 0;
 
-        String result = "Details for \"" + customerName + "\"\n";
+        String result = "Details for \"" + customer.customerName + "\"\n";
         result += adress.street + " " + adress.streetNumber + "\n";
         result += adress.postalCode + " " + adress.city + "\n";
-        result += "Geburtstag: " + birthday + "\n";
-        result += "Email: " + email + "\n\n";
+        result += "Geburtstag: " + customer.birthday + "\n";
+        result += "Email: " + customer.email + "\n\n";
         result += "refactoring.Article: \n";
         for (Article article : articles) {
             double price = 0;

@@ -14,7 +14,8 @@ public class BillTest {
     void setUp() {
         Date testDate = new Date(1990, 5, 15);
         Adress adress = new Adress("Mussterstraße","42",12345,"Musterstadt");
-        bill = new Bill("Max Mustermann", "Maxi", adress , testDate, "max@test.de");
+        Customer customer = new Customer("Max Mustermann", "Maxi", testDate,"max@test.de");
+        bill = new Bill(customer,adress);
     }
 
     @Test
